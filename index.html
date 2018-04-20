@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US" class="gr__repmax_github_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+
+<title>NetML - a network markup language</title>
+<meta property="og:title" content="NetML - a network markup language">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://repmax.github.io/test/">
+<meta property="og:url" content="https://repmax.github.io/test/">
+<meta property="og:site_name" content="test">
+<script type="application/ld+json">
+{"name":"test","@type":"WebSite","url":"https://repmax.github.io/test/","headline":"NetML - a network markup language","@context":"http://schema.org"}</script>
+  <link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117857099-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117857099-1');
+</script>
+</head>
+
+  <body data-gr-c-s-loaded="true">
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+		<a id="forkme_banner" href="https://github.com/repmax/netmaker">NetMaker Tools</a>
+		<a id="forkme_banner2" href="https://github.com/repmax/netml">Join NetML</a>
+          <h1 id="project_title">NetML</h1>
+          <h2 id="project_tagline">- a network markup language</h2>          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+      <!-- CONTENT -->
+
+
+<p>NetML is a network markup language that makes it easy to write down information as a network of nodes with properties and links.</p>
+
+<img src="img/nml-concept.png">
+
+<h3 id="concept">Concept<a class="anchorjs-link " href="https://repmax.github.io/test/#concept" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Real-world issues are often complex and involve many stakeholders. Those dealing with the issues - such as engaged citizens, researchers and journalists - are therefore often struggling to manage and integrate the many fragments of information they find in the early phases of a investigation.</p>
+
+<p>NetML is conceived to make it quick and intuitive to write down information as a network of nodes with properties and links. The combination of a single text file and a compact format makes it possible to get an overview of the information in the NetML file itself. For a more comprehensive exploration of the network, NetML files can easily be converted to a number of file formats that are accepted by most network visualization and analysis software (e.g. <a href='https://graphcommons.com'>Graphcommons</a>, <a href='https://onodo.org'>Onodo</a> and <a href='https://gephi.org'>Gephi</a>).</p>
+
+<img src="img/txt-json-net.png">
+
+<p>Because the NetML file is a simple text file, it can easily be shared or uploaded to a cloud service for collaboration (GitHub, Google Drive etc.)</p>
+
+<h3 id="status">Join the project!<a class="anchorjs-link " href="https://repmax.github.io/test/#status" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>This is the first release of specifications for NetML, so there are lots of exciting work ahead. If you have any comments, recommendation or would like to contribute to the development of NetML, please go to <a href='https://github.com/repmax/netml'>https://github.com/repmax/netml</a>.</p>
+
+<p>In parallel, a suite of tools is being developed to convert NetML to standard network formats. You can download the tools and/or contribute to their further development at the NetMaker GitHub repository: <a href='https://github.com/repmax/netmaker'>https://github.com/repmax/netmaker</a>.</p>
+
+<h2 id="specifications">Specifications<a class="anchorjs-link " href="https://repmax.github.io/test/#specifications" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<h3 id="node-properties-and-links">Node, properties and links<a class="anchorjs-link " href="https://repmax.github.io/test/#node-properties-and-links" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>Let’s start with an example of how to lines of text is converted into a network:</p>
+
+<img src="img/nml-nodes-properties.png">
+
+<p>From the example above we can see that each node is defined in a single line of text and may consist of up to 3 parts separated by <code class="highlighter-rouge">'|'</code>:</p>
+<ol>
+  <li>Meta: name, type (optionally followed by a unique ID), description (optional)</li>
+  <li>Props: properties that you define</li>
+  <li>Links: each link will specify a type of relationship and a unique identifier of a target node</li>
+</ol>
+
+<img src="img/meta-props-links.png">
+
+<p>To make a link between two nodes, the target node must have a unique identifier, so no other node is mistaken for the target. The unique ID must start with a capital letter but can otherwise be any combination of letters and numbers. Finally, the unique id is added to the type string. E.g. <code class="highlighter-rouge">Weng Tonghe; person ||</code> may be assigned a unique identifier by adding "WenTon" to the type =&gt; <code class="highlighter-rouge">Weng Tonghe; personWenTon ||</code></p>
+
+<h3 id="commenting-and-bulk-linking">Commenting and bulk linking<a class="anchorjs-link " href="https://repmax.github.io/test/#commenting-and-bulk-linking" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>You can write non-processed comments between lines starting with <code class="highlighter-rouge">[--</code>  and  <code class="highlighter-rouge">]++</code>. To insert a non-processed comment in a single line you can prefix it with <code class="highlighter-rouge">//</code></p>
+
+<p>It is also possible to assign a link to several nodes at a time with <code class="highlighter-rouge">##</code>. E.g. <code class="highlighter-rouge">## wrk:orgUN</code> will add a link to the United Nations node from all the following lines of nodes till it reaches a blank line or a comment section.</p>
+
+<img src="img/comment-batch-link.png">
+
+<h3 id="abbreviated-syntax">Abbreviated syntax<a class="anchorjs-link " href="https://repmax.github.io/test/#abbreviated-syntax" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p>A NetML may optionally be accompanied by a configuration file that specifies how an abbreviated syntax should be expanded while processing.</p>
+
+<p>Example of YAML configuration file:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>props: 
+  ww: 'webpage'
+  lo: 'location'
+  tw: 'twitter'
+
+links: 
+  wrk: 'work_for'
+  col: 'collaborate'
+  key: 'has_tag'
+
+types: 
+  k: 'keyword'
+  o: 'organisation'
+  b: 'business'
+  p: 'person'
+</code></pre></div></div>
+
+<p>With the convention above, the node <code class="highlighter-rouge">Ana Smith; person; Manager | web:joesmith.net twitter:joesm1th |</code> can be abbreviated to <code class="highlighter-rouge">Ana Smith; p; Manager | ww:joesmith.net tw:joesm1th |</code></p>
+
+<h2 id="instructions">Instructions<a class="anchorjs-link " href="https://repmax.github.io/test/#instructions" aria-label="Anchor" data-anchorjs-icon="" style="font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: 1; font-family: anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<ol>
+  <li>Create a simple text file and write down information according to the specifications above.</li>
+  <li>Go to <a href='https://github.com/repmax/netmaker'>https://github.com/repmax/netmaker</a> and follow the instructions to convert your text file to a network file format.</li>
+  <li>Import the network file into your favourite network visualization and analysis software or service.</li>
+</ol>
+	  
+
+    <!-- END CONTENT  -->	   
+	   
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">Maintained by <a href="https://github.com/repmax">repmax</a></p>
+      </footer>
+    </div>
+
+    
+  
+
+</body></html>
